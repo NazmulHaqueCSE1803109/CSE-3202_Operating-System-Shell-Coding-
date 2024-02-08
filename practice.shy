@@ -1,0 +1,18 @@
+#! /bin/bash
+echo "Enter the brust time(bt) of all the process : "
+read -a bt
+n={#bt[*]}
+n=$((n-1))
+wt=(0 0 0 0 0 0 0 0 0 0)
+for i in {1..n}
+        do
+        wt[i]=$((bt[i-1]+wt[i-1]))
+done
+total=0
+for i in {0..n}
+       do
+       total=$((total+wt[i]))
+done
+n=$((n+1))
+echo "Average waiting time :"
+ehco "scale=3;$total/$n"|bc

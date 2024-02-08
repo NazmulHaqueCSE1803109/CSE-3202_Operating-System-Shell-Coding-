@@ -1,0 +1,7 @@
+#! /bin/bash
+echo "Enter the brust time of all the processes : "
+read -a bt
+bt=($(printf '%s\n' "${bt[@]}" | sort -n))
+n=${#bt[@]}
+n=$((n-1))
+wt=(0 0 0 0 0 0 0 
